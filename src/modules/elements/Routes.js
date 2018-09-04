@@ -12,12 +12,18 @@ const CategoryChunk = Loadable({
   loading: () => null
 });
 
+const ManufacturerChunk = Loadable({
+  loader: () => import("./manufacturer/Manufacturer"),
+  loading: () => null
+});
+
 const Routes = () => {
   return (
     <React.Fragment>
       <Switch>
         <Route path="/elements/products" component={ProductsChunk} />
         <Route path="/elements/category" component={CategoryChunk} />
+        <Route path="/elements/manufacturer" component={ManufacturerChunk} />
       </Switch>
     </React.Fragment>
   );

@@ -35,6 +35,9 @@ const MainSider = () => {
           <Menu.Item key="4">
             <Link to="/elements/category">Category</Link>
           </Menu.Item>
+          <Menu.Item key="5">
+            <Link to="/elements/manufacturer">Manufacturer</Link>
+          </Menu.Item>
         </SubMenu>
         <SubMenu
           key="sub2"
