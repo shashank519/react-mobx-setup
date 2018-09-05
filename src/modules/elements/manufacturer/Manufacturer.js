@@ -8,42 +8,30 @@ import pm from "./ManufacturerPM";
 
 import "./Manufacturer.scss";
 
-const dataSource = [
-  {
-    key: "1",
-    name: "Mike",
-    description: 32,
-    createdAt: "10 Downing Street",
-    updatedAt: "10 Downing Street"
-  },
-  {
-    key: "2",
-    name: "John",
-    description: 42,
-    createdAt: "10 Downing Street",
-    updatedAt: "10 Downing Street"
-  }
-];
-
 const columns = [
   {
     title: "Name",
     dataIndex: "name",
-    key: "name"
+    rowKey: "name",
+    key: "name",
+    width: 250
   },
   {
     title: "Description",
     dataIndex: "description",
+    rowKey: "description",
     key: "description"
   },
   {
     title: "Action",
     dataIndex: "actions",
+    rowKey: "actions",
     key: "actions",
+    width: 250,
     render: (info, row) => {
       return (
         <span>
-          <Button type="primary" onClick={() => pm.toggleModal(row)}>
+          <Button type="primary" onClick={() => pm.toggleModal(row, "edit")}>
             Edit
           </Button>
           <Button type="primary" className="mrgnLft5">
@@ -58,9 +46,22 @@ const columns = [
 const Manufacturer = () => {
   return (
     <div className="manufacturer">
-      <h1>Manufacturer page</h1>
-      <Table dataSource={dataSource} columns={columns} />
-      <ActionModal />
+      <div className="manufacturer-head">
+        <h2 className="display-inline">Manufacturer</h2>
+        <Button
+          onClick={pm.toggleModal}
+          className="display-inline float-right"
+          type="primary"
+          shape="circle"
+          icon="plus"
+        />
+      </div>
+      <Table
+        dataSource={pm.manufacturarsList.slice()}
+        columns={columns}
+        rowKey={record => record.key}
+      />
+      <ActionModal wrappedComponentRef={pm.saveFormRef} />
     </div>
   );
 };

@@ -1,6 +1,6 @@
 import React from "react";
 import { observer } from "mobx-react";
-import { Modal, Form, Input, Tooltip, Icon, Button } from "antd";
+import { Modal, Form, Input, Button } from "antd";
 import pm from "./ManufacturerPM";
 
 const FormItem = Form.Item;
@@ -24,7 +24,7 @@ const ActionModal = props => {
       onCancel={pm.toggleModal}
       footer={null}
     >
-      <Form onSubmit={pm.submitHandle}>
+      <Form onSubmit={e => pm.submitHandle(e, props.form)}>
         <FormItem {...formItemLayout} label="Name">
           {getFieldDecorator("name", {
             rules: [
@@ -49,7 +49,7 @@ const ActionModal = props => {
         </FormItem>
         <FormItem {...tailFormItemLayout}>
           <Button type="primary" htmlType="submit">
-            Update
+            {pm.modelActionType === "edit" ? "Update" : "Add"}
           </Button>
         </FormItem>
       </Form>
