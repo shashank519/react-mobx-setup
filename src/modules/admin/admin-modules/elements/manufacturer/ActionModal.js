@@ -1,7 +1,6 @@
 import React from "react";
 import { observer } from "mobx-react";
 import { Modal, Form, Input, Button } from "antd";
-import pm from "./ManufacturerPM";
 
 const FormItem = Form.Item;
 const { TextArea } = Input;
@@ -19,21 +18,24 @@ const ActionModal = props => {
 
   return (
     <Modal
-      title="Basic Modal"
-      visible={pm.isModalVisible}
-      onCancel={pm.toggleModal}
+      title="Manufacturer's"
+      visible={props.isModalVisible}
+      onCancel={() => props.onCancel(props.form)}
       footer={null}
     >
-      <Form onSubmit={e => pm.submitHandle(e, props.form)}>
+      <Form onSubmit={e => props.submitHandle(e, props.form)}>
         <FormItem {...formItemLayout} label="Name">
-          {getFieldDecorator("name", {
+          {getFieldDecorator("manufacturerName", {
             rules: [
               {
                 required: true,
                 message: "Please input your name!",
                 whitespace: true
               }
-            ]
+            ],
+            initialValue:
+              props.seletedManufacturer &&
+              props.seletedManufacturer.manufacturerName
           })(<Input />)}
         </FormItem>
         <FormItem {...formItemLayout} label="Description">
@@ -44,12 +46,14 @@ const ActionModal = props => {
                 message: "Please input description!",
                 whitespace: true
               }
-            ]
+            ],
+            initialValue:
+              props.seletedManufacturer && props.seletedManufacturer.description
           })(<TextArea rows={4} />)}
         </FormItem>
         <FormItem {...tailFormItemLayout}>
           <Button type="primary" htmlType="submit">
-            {pm.modelActionType === "edit" ? "Update" : "Add"}
+            {props.modelActionType === "edit" ? "Update" : "Add"}
           </Button>
         </FormItem>
       </Form>

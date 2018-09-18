@@ -17,42 +17,82 @@ const MainSider = () => {
         <Menu.Item key="1">
           <Icon type="pie-chart" />
           <span>
-            <Link to="/dashboard">Dashboard</Link>
+            <Link to="/admin/dashboard">Dashboard</Link>
           </span>
         </Menu.Item>
         <SubMenu
           key="sub1"
           title={
             <span>
-              <Icon type="user" />
-              <span>Elements</span>
+              <Icon type="book" />
+              <span>Procurement</span>
             </span>
           }
         >
           <Menu.Item key="3">
-            <Link to="/elements/products">Product</Link>
+            <Icon type="shop" theme="outlined" />
+            <span>
+              <Link to="/admin/elements/products-master">Product Master</Link>
+            </span>
           </Menu.Item>
           <Menu.Item key="4">
-            <Link to="/elements/category">Category</Link>
+            <Icon type="shop" theme="outlined" />
+            <span>
+              <Link to="/admin/elements/products">Product</Link>
+            </span>
           </Menu.Item>
           <Menu.Item key="5">
-            <Link to="/elements/manufacturer">Manufacturer</Link>
+            <Icon type="bars" theme="outlined" />
+            <span>
+              <Link to="/admin/elements/category">Category</Link>
+            </span>
+          </Menu.Item>
+          <Menu.Item key="6">
+            <Icon type="tool" theme="outlined" />
+            <span>
+              <Link to="/admin/elements/manufacturer">Manufacturer</Link>
+            </span>
+          </Menu.Item>
+          <Menu.Item key="7">
+            <Icon type="trademark" theme="outlined" />
+            <span>
+              <Link to="/admin/elements/brand">Brand</Link>
+            </span>
+          </Menu.Item>
+          <Menu.Item key="10">
+            <Icon type="trademark" theme="outlined" />
+            <span>
+              <Link to="/admin/elements/unit">Units</Link>
+            </span>
           </Menu.Item>
         </SubMenu>
         <SubMenu
           key="sub2"
           title={
             <span>
-              <Icon type="team" />
+              <Icon type="setting" />
+              <span>Purchase Order</span>
+            </span>
+          }
+        >
+          <Menu.Item key="8">
+            <Link to="/admin/settings/change-password">Change Password</Link>
+          </Menu.Item>
+        </SubMenu>
+        <SubMenu
+          key="sub3"
+          title={
+            <span>
+              <Icon type="setting" />
               <span>Settings</span>
             </span>
           }
         >
-          <Menu.Item key="6">
-            <Link to="/settings/change-password">Change Password</Link>
-          </Menu.Item>
           <Menu.Item key="8">
-            <Link to="/settings/roles">Roles</Link>
+            <Link to="/admin/settings/change-password">Change Password</Link>
+          </Menu.Item>
+          <Menu.Item key="9">
+            <Link to="/admin/settings/roles">Roles</Link>
           </Menu.Item>
         </SubMenu>
       </Menu>

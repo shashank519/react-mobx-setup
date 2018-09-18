@@ -17,10 +17,10 @@ const Routes = () => {
     <React.Fragment>
       <Switch>
         <Route
-          path="/settings/change-password"
+          path="/admin/settings/change-password"
           component={ChangePasswordChunk}
         />
-        <Route path="/settings/roles" component={RolesChunk} />
+        <Route path="/admin/settings/roles" component={RolesChunk} />
       </Switch>
     </React.Fragment>
   );

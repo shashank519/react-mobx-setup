@@ -1,26 +1,19 @@
 import React from "react";
 import { Switch, Route, BrowserRouter as Router } from "react-router-dom";
-import Login from "./modules/login";
+import CustomerRoutes from "./modules/customer/Routes";
+import AdminRoutes from "./modules/admin/Routes";
+// import Login from "./modules/login";
 // import Dashboard from "./modules/dashboard";
-import ModuleRoutes from "./modules/Routes";
-import ProtectedRoute from "./hoc/Auth";
+// import ProtectedRoute from "./hoc/Auth";
 
 const Routes = () => {
-  let isLoggedIn = true;
-
   return (
     <main>
       <Router>
-        {isLoggedIn ? (
-          <Switch>
-            <Route path="/" component={ModuleRoutes} />
-          </Switch>
-        ) : (
-          <Switch>
-            <Route exact path="/" component={Login} />
-            <Route path="/login" component={Login} />
-          </Switch>
-        )}
+        <Switch>
+          <Route exact path="/" component={CustomerRoutes} />
+          <Route path="/admin" component={AdminRoutes} />
+        </Switch>
       </Router>
     </main>
   );

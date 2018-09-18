@@ -20,7 +20,7 @@ const MainLayout = ({ children }) => {
             margin: "24px 16px",
             padding: 24,
             background: "#fff",
-            minHeight: 280
+            height: "100vh"
           }}
         >
           {children}
